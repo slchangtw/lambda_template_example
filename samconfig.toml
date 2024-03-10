@@ -1,0 +1,24 @@
+version = 0.1
+
+[default]
+[default.global.parameters]
+s3_bucket = "aws-lambda-deployment-test"
+s3_prefix = "get-cat-image"
+
+[default.build.parameters]
+cached = true
+parallel = true
+use_container = true
+skip_pull_image = true
+
+[default.validate.parameters]
+lint = true
+
+[default.deploy.parameters]
+stack_name = "get-cat-image"
+capabilities = "CAPABILITY_IAM"
+template_file = "packaged.yaml"
+confirm_changeset = true
+
+[default.package.parameters]
+output_template_file = "packaged.yaml"
